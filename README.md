@@ -12,7 +12,7 @@ This is heavily based on the URLs you use for stations not changing. I'm not sur
 
 ### Siri Shortcuts
 
-```Hey Siri, YoutubeTV```
+```Hey Siri, turn TV on```
 
 This is fairly straight forward with SSH and Shortcuts app. The `open` command works out of the box:
 
@@ -26,7 +26,9 @@ Using [chromix-too](https://github.com/smblott-github/chromix-too) we can create
 
 Once chromix-too extension is installed, server running, and client module installed we can script against it. From their issues I am using a script to change channels:
 
-## Change channels
+### Scipts
+
+## Change channel
 
 ```sh
 coffee change-channel.coffee https://tv.youtube.com/watch/channelId
