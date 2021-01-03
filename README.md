@@ -2,18 +2,22 @@
 
 ![](https://static.wikia.nocookie.net/bttf/images/3/30/Multiplechannels.PNG/revision/latest?cb=20090119063224)
 
-Some hacks to make watching TV more accessible on Chrome. This is heavily based on the URLs you use for stations being static. I'm not sure how often they change.
+A software cable box that works with any provider. Siri and Homekit enabled.
+
+### Caveats
+
+This is heavily based on the URLs you use for stations not changing. I'm not sure how often they change on YoutubeTV, but they seem to be the same over the past few days. Depends on [chromix-too](ttps://github.com/smblott-github/chromix-too) and coffeescript currently, since it chromix-too's examples are in it.
 
 ## Features
 
 ### Siri Shortcuts
 
-```Hey Siri, CNN```
+```Hey Siri, YoutubeTV```
 
 This is fairly straight forward with SSH and Shortcuts app. The `open` command works out of the box:
 
 ```sh
-open -a "/Applications/Google Chrome" https://tv.youtube.com/watch/channelId
+open -a "/Applications/Google Chrome" https://tv.youtube.com
 ```
 
 ```Hey Siri, change to CNN```
@@ -22,29 +26,30 @@ Using [chromix-too](https://github.com/smblott-github/chromix-too) we can create
 
 Once chromix-too extension is installed, server running, and client module installed we can script against it. From their issues I am using a script to change channels:
 
+## Change channels
+
 ```sh
 coffee change-channel.coffee https://tv.youtube.com/watch/channelId
 ```
 
-I'm still figuring out the paths in the Shortcuts SSH config, the working workarounds is to specify all the paths:
+## Mute tab
+
+```sh
+coffee mute.coffee
+```
+
+## Close browser window
+
+```sh
+coffee turn-off.coffee
+```
 
 ```sh
 /usr/local/bin/node /where/coffeescript/is /where/this/script/change-channel.coffee https://tv.youtube.com/watch/channelId
 ```
 
-```Hey Siri, command W```
-
-Lastly I want to be able to close a tab. I found that "Close" might be reserved, so to be literal I programmed it as Command W and installed a tool called [cliclick](https://www.bluem.net/en/projects/cliclick/) which made this easy to do:
-
-```sh
-cliclick "kd:cmd" "t:w"
-```
-
-There might be better options with chromix-too that would support closing in the background.
-
 Next steps:
 
-* Publish to npm?
-* Rebuild extension/server/client and publish?
-* Support volume control, multiple windows?
-* Documentation + Blog Post?
+* More detailed Siri Shortcuts steps
+* Multiple channels
+* WebRTC sharing (party mode)
