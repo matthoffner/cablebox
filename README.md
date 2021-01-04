@@ -53,5 +53,5 @@ coffee turn-off.coffee
 Next steps:
 
 * More detailed Siri Shortcuts steps
-* Multiple channels
+* Detect commercials
 * WebRTC sharing (party mode)
