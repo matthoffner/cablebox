@@ -34,6 +34,12 @@ Once chromix-too extension is installed, server running, and client module insta
 coffee change-channel.coffee https://tv.youtube.com/watch/channelId
 ```
 
+## Next channel
+
+```sh
+coffee next-channel.coffee
+```
+
 ## Mute tab
 
 ```sh
